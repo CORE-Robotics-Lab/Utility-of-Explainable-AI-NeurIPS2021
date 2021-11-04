@@ -46,4 +46,4 @@ Please note that the environment can be easily modified by generating a new .xml
 is fitted for a Dell 27 inch wide screen monitor. Different displays may require modifying the size of the display.
 Feel free to email at rpaleja3@gatech.edu or post an issue if you have trouble.
 
-![Sample Gameplay Gif]()
+![Sample Gameplay Gif](https://github.com/CORE-Robotics-Lab/Utility-of-Explainable-AI-NeurIPS2021/blob/main/sample_gameplay.gif)
