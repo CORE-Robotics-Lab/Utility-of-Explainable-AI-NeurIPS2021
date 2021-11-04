@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--
+  ~ Copyright (c) 2017 Microsoft Corporation.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<Mission xmlns="http://ProjectMalmo.microsoft.com">
+
+    <About>
+        <Summary>Catch the pig!</Summary>
+    </About>
+
+    <ModSettings>
+        <MsPerTick>4</MsPerTick>
+    </ModSettings>
+
+    <ServerSection>
+        <ServerInitialConditions>
+            <Time>
+                <StartTime>3000</StartTime>
+                <AllowPassageOfTime>true</AllowPassageOfTime>
+            </Time>
+            <Weather>clear</Weather>
+            <AllowSpawning>false</AllowSpawning>
+        </ServerInitialConditions>
+        <ServerHandlers>
+            <FlatWorldGenerator generatorString="3;minecraft:bedrock,2*minecraft:dirt,minecraft:grass;1;village,decoration" seed="true" forceReset="true" />
+            <DrawingDecorator>
+                <!-- Tricks to clean the map before drawing (avoid entity duplication on the map) -->
+                <!-- coordinates for cuboid are inclusive -->
+                <DrawCuboid x1="-50" y1="4" z1="-50" x2="50" y2="45" z2="50" type="air"/>
+
+                <!-- House Area -->
+                <DrawLine type="diamond_block" x1="-1" y1="3" z1="-1" x2="8" y2="3" z2="-1" />
+                <DrawLine type="diamond_block" x1="-1" y1="3" z1="6" x2="8" y2="3" z2="6" />
+                <DrawLine type="diamond_block" x1="-1" y1="3" z1="-1" x2="-1" y2="3" z2="6" />
+                <DrawLine type="diamond_block" x1="8" y1="3" z1="-1" x2="8" y2="3" z2="6" />
+                <DrawBlock type="coal_block" x="4" y="3" z="6" />
+                <DrawBlock type="coal_block" x="3" y="3" z="6" />
+<!--                <DrawBlock type="diamond_block" x="0" y="3" z="9" />-->
+<!--                <DrawBlock type="diamond_block" x="11" y="3" z="9" />-->
+<!--                <DrawBlock type="diamond_block" x="10" y="3" z="9" />-->
+<!--                <DrawBlock type="diamond_block" x="10" y="3" z="8" />-->
+
+                <DrawLine type="redstone_block" x1="-1" y1="3" z1="-2" x2="-1" y2="3" z2="-4" />
+                <DrawLine type="redstone_block" x1="8" y1="3" z1="-2" x2="8" y2="3" z2="-4" />
+                <DrawLine type="emerald_block" x1="8" y1="3" z1="-2" x2="8" y2="3" z2="-3" />
+                <DrawLine type="redstone_block" x1="-1" y1="3" z1="-5" x2="8" y2="3" z2="-5" />
+
+
+<!--                bench-->
+                <DrawLine type="gold_block" x1="3" y1="3" z1="-7" x2="7" y2="3" z2="-7" />
+
+
+
+<!--                 House itself -->
+<!--                <DrawCuboid type="planks" x1="0" y1="4" z1="0" x2="11" y2="5" z2="0" />-->
+<!--                <DrawLine type="cobblestone" x1="0" y1="6" z1="0" x2="11" y2="6" z2="0" />-->
+<!--                <DrawLine type="planks" variant="acacia" x1="0" y1="4" z1="6" x2="11" y2="4" z2="6" />-->
+<!--                <DrawLine type="planks" x1="0" y1="5" z1="6" x2="4" y2="5" z2="6" />-->
+<!--                <DrawLine type="planks" x1="7" y1="5" z1="6" x2="11" y2="5" z2="6" />-->
+                <DrawLine type="planks" variant="jungle" x1="-1" y1="4" z1="-1" x2="8" y2="4" z2="-1" />
+                <DrawLine type="planks" variant="jungle" x1="-1" y1="4" z1="6" x2="8" y2="4" z2="6" />
+                <DrawLine type="planks" variant="jungle" x1="-1" y1="4" z1="-1" x2="-1" y2="4" z2="6" />
+                <DrawLine type="planks" variant="jungle" x1="8" y1="4" z1="-1" x2="8" y2="4" z2="6" />
+
+                <DrawLine type="cobblestone"  x1="-1" y1="5" z1="-1" x2="8" y2="5" z2="-1" />
+                <DrawLine type="cobblestone"  x1="-1" y1="5" z1="6" x2="8" y2="5" z2="6" />
+                <DrawLine type="cobblestone"  x1="-1" y1="5" z1="-1" x2="-1" y2="5" z2="6" />
+                <DrawLine type="cobblestone"  x1="8" y1="5" z1="-1" x2="8" y2="5" z2="6" />
+
+                <DrawLine type="planks" variant="birch" x1="-1" y1="6" z1="-1" x2="8" y2="6" z2="-1" />
+                <DrawLine type="planks" variant="birch" x1="-1" y1="6" z1="6" x2="8" y2="6" z2="6" />
+                <DrawLine type="planks" variant="birch" x1="-1" y1="6" z1="-1" x2="-1" y2="6" z2="6" />
+                <DrawLine type="planks" variant="birch" x1="8" y1="6" z1="-1" x2="8" y2="6" z2="6" />
+
+                <DrawLine type="stone" variant="smooth_andesite" x1="-1" y1="7" z1="-1" x2="8" y2="7" z2="-1" />
+                <DrawLine type="stone" variant="smooth_andesite" x1="-1" y1="7" z1="6" x2="8" y2="7" z2="6" />
+                <DrawLine type="stone" variant="smooth_andesite" x1="-1" y1="7" z1="-1" x2="-1" y2="7" z2="6" />
+                <DrawLine type="stone" variant="smooth_andesite" x1="8" y1="7" z1="-1" x2="8" y2="7" z2="6" />
+
+
+                <DrawBlock type="wooden_door" x="3" y="4" z="6" />
+                <DrawBlock type="wooden_door" x="4" y="4" z="6" />
+                <DrawBlock type="air" x="3" y="5" z="6" />
+                <DrawBlock type="air" x="4" y="5" z="6" />
+
+
+                <DrawLine type="oak_stairs" x1="3" y1="4" z1="-7" x2="7" y2="4" z2="-7" />
+
+                <DrawLine type="fence" x1="-1" y1="4" z1="-2" x2="-1" y2="4" z2="-4" />
+                <DrawLine type="fence" x1="8" y1="4" z1="-2" x2="8" y2="4" z2="-4" />
+                <DrawLine type="fence" x1="-1" y1="4" z1="-5" x2="8" y2="4" z2="-5" />
+                <DrawBlock type="fence_gate" x="8" y="4" z="-2" />
+                <DrawBlock type="fence_gate" x="8" y="4" z="-3" />
+
+                <!-- Neccessities -->
+                <DrawBlock type="crafting_table" x="5" y="4" z="11" />
+                <DrawBlock type="chest" x="6" y="4" z="11" />
+
+                <DrawCuboid type="log" variant="oak" x1="-4" y1="4" z1="14" x2="-5" y2="15" z2="13" />
+
+                <!-- Not so Invisible Wall -->
+                <DrawCuboid type="bedrock" x1="-30" y1="4" z1="-30" x2="30" y2="10" z2="-30" />
+                <DrawCuboid type="bedrock" x1="-30" y1="4" z1="30" x2="30" y2="10" z2="30" />
+                <DrawCuboid type="bedrock" x1="-30" y1="4" z1="-30" x2="-30" y2="10" z2="30" />
+                <DrawCuboid type="bedrock" x1="30" y1="4" z1="-30" x2="30" y2="10" z2="30" />
+
+                <!-- Pig -->
+                <DrawEntity x="4.5" y="4" z="3.5" type="Pig"/>
+
+            </DrawingDecorator>
+            <ServerQuitFromTimeUp timeLimitMs="1000000"/>
+            <ServerQuitWhenAnyAgentFinishes/>
+        </ServerHandlers>
+    </ServerSection>
+
+    <AgentSection mode="Survival">
+        <Name>Agent_1</Name>
+        <AgentStart>
+            <Placement x="1" y="4" z="2" pitch="30" yaw="0"/>
+            <Inventory>
+                <InventoryObject type="diamond_helmet" slot="39"/>
+            </Inventory>
+        </AgentStart>
+        <AgentHandlers>
+            <MissionQuitCommands quitDescription="Agent_1_caught_pig"/>
+            <ObservationFromNearbyEntities>
+                <Range name="entities" xrange="8" yrange="2" zrange="6"/>
+            </ObservationFromNearbyEntities>
+            <ObservationFromGrid>
+                <Grid name="board" absoluteCoords="true">
+                    <min x="-30" y="4" z="-30"/>
+                    <max x="30" y="9" z="30"/>
+                </Grid>
+            </ObservationFromGrid>
+
+            <ObservationFromHotBar />
+            <ObservationFromFullInventory />
+            <ObservationFromFullStats />
+
+            <TurnBasedCommands requestedPosition="1">
+                <DiscreteMovementCommands>
+                    <ModifierList type="deny-list">
+                        <command>attack</command>
+                    </ModifierList>
+                </DiscreteMovementCommands>
+            </TurnBasedCommands>
+            <RewardForTouchingBlockType>
+                <Block reward="5.0" type="lapis_block" behaviour="onceOnly"/>
+            </RewardForTouchingBlockType>
+            <RewardForSendingCommand reward="-1"/>
+            <AgentQuitFromTouchingBlockType>
+                <Block type="lapis_block" description="Agent_1_defaulted"/>
+            </AgentQuitFromTouchingBlockType>
+            <VideoProducer want_depth="false">
+                <Width>640</Width>
+                <Height>480</Height>
+            </VideoProducer>
+        </AgentHandlers>
+    </AgentSection>
+
+    <AgentSection mode="Survival">
+        <Name>Agent_2</Name>
+        <AgentStart>
+            <Placement x="-3" y="4" z="3" pitch="30" yaw="180"/>
+            <Inventory>
+                <InventoryObject type="iron_helmet" slot="39"/>
+                <InventoryItem slot="2" type="wooden_axe" />
+            </Inventory>
+        </AgentStart>
+        <AgentHandlers>
+            <MissionQuitCommands quitDescription="Agent_2_caught_pig"/>
+            <ObservationFromNearbyEntities>
+                <Range name="entities" xrange="8" yrange="2" zrange="6"/>
+            </ObservationFromNearbyEntities>
+
+            <ObservationFromGrid>
+                <Grid name="board" absoluteCoords="true">
+                    <min x="-30" y="4" z="-30"/>
+                    <max x="30" y="9" z="30"/>
+                </Grid>
+            </ObservationFromGrid>
+
+            <ObservationFromHotBar />
+            <ObservationFromFullInventory />
+            <ObservationFromFullStats />
+
+            <TurnBasedCommands requestedPosition="1">
+                <DiscreteMovementCommands>
+                    <ModifierList type="deny-list">
+                        <command>attack</command>
+                    </ModifierList>
+                </DiscreteMovementCommands>
+            </TurnBasedCommands>
+            <RewardForTouchingBlockType>
+                <Block reward="5.0" type="lapis_block" behaviour="onceOnly"/>
+            </RewardForTouchingBlockType>
+            <RewardForCatchingMob>
+                <Mob type="Pig" reward="25.0" distribution="Agent_1:1 Agent_2:1" oneshot="true" global="true"/>
+            </RewardForCatchingMob>
+            <RewardForSendingCommand reward="-1"/>
+            <AgentQuitFromReachingCommandQuota total="25" description="command_quota_reached"/>
+            <AgentQuitFromTouchingBlockType>
+                <Block type="lapis_block" description="Agent_2_defaulted"/>
+            </AgentQuitFromTouchingBlockType>
+            <AgentQuitFromCatchingMob>
+                <Mob type="Pig" description="caught_the_pig" global="true"/>
+            </AgentQuitFromCatchingMob>
+            <VideoProducer want_depth="false">
+                <Width>640</Width>
+                <Height>480</Height>
+            </VideoProducer>
+        </AgentHandlers>
+    </AgentSection>
+</Mission>
